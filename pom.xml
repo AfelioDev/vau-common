@@ -8,6 +8,7 @@
         <groupId>mx.validarauto</groupId>
         <artifactId>validarauto-platform</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath/>
     </parent>
 
     <artifactId>common</artifactId>
