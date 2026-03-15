@@ -89,6 +89,89 @@ components:
           example: "2023-06-15"
         vehicle:
           $ref: '#/components/schemas/VehicleInfoDTO'
+        pgj:
+          $ref: '#/components/schemas/PgjDTO'
+        ocra:
+          $ref: '#/components/schemas/OcraDTO'
+        rapi:
+          $ref: '#/components/schemas/RapiDTO'
+        carfax:
+          $ref: '#/components/schemas/CarfaxDTO'
+
+    PgjDTO:
+      type: object
+      description: Datos de la Procuraduría General de Justicia — reporte de robo vehicular
+      properties:
+        vin:
+          type: string
+          description: NIV del vehículo
+        placa:
+          type: string
+          description: Placa del vehículo
+        estatusVhiRobo:
+          type: string
+          description: Estatus del vehículo ante robo (ROBADO, RECUPERADO, NO_ROBADO)
+          example: NO_ROBADO
+        fteVhiRobo:
+          type: string
+          description: Fuente que reportó el robo
+          example: PGJ - HIDALGO
+        fechaRobo:
+          type: string
+          description: Fecha del reporte de robo (YYYY-MM-DD)
+          example: "2023-06-15"
+        fechaActualiza:
+          type: string
+          description: Fecha de última actualización del registro
+
+    OcraDTO:
+      type: object
+      description: Datos de la Oficina Coordinadora de Riesgos Asegurados — robo/recuperación
+      properties:
+        conReporteRoboRecuperacion:
+          type: boolean
+          description: Indica si el vehículo tiene reporte de robo o recuperación en OCRA
+          example: false
+        reporte:
+          type: object
+          description: Detalle del reporte de robo/recuperación (estructura variable)
+          additionalProperties: true
+        vehiculo:
+          type: object
+          description: Datos del vehículo en el registro OCRA (estructura variable)
+          additionalProperties: true
+
+    RapiDTO:
+      type: object
+      description: Datos de RAPI — procedencia ilícita del vehículo
+      properties:
+        tieneDelito:
+          type: boolean
+          description: Indica si el vehículo está asociado a algún delito
+          example: false
+        delito:
+          type: string
+          description: Tipo de delito registrado
+        estadoVehiculo:
+          type: string
+          description: Estado del vehículo en el registro RAPI
+        vehiculo:
+          type: object
+          description: Datos del vehículo en RAPI (estructura variable)
+          additionalProperties: true
+
+    CarfaxDTO:
+      type: object
+      description: Datos de CarFax — historial de robo internacional
+      properties:
+        tieneReporte:
+          type: boolean
+          description: Indica si CarFax tiene algún reporte para el vehículo
+          example: false
+        detalle:
+          type: object
+          description: Detalle del reporte CarFax (estructura variable según respuesta)
+          additionalProperties: true
 
     DebtItemDTO:
       type: object
