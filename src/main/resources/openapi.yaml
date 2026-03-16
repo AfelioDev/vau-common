@@ -317,6 +317,10 @@ components:
           type: string
           description: URL para descargar el PDF del reporte
           example: "/api/reports/550e8400-e29b-41d4-a716-446655440000/pdf"
+        pdfBase64:
+          type: string
+          description: PDF del reporte codificado en Base64 (solo en la respuesta de generate)
+          example: "JVBERi0xLjUK..."
 
     ReportEventDTO:
       type: object
