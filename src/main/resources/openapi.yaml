@@ -57,6 +57,26 @@ components:
           type: string
           description: Fecha de inscripción en el REPUVE (formato YYYY-MM-DD)
           example: "2020-01-15"
+        numPuertas:
+          type: string
+          description: Número de puertas del vehículo
+          example: "5"
+        cilindrada:
+          type: string
+          description: Desplazamiento del motor
+          example: "1.6L"
+        linea:
+          type: string
+          description: Línea/versión completa del vehículo (datos complementarios REPUVE)
+          example: "GOL HATCHBACK 5 PUERTAS 1.6L L4 100HP"
+        clase:
+          type: string
+          description: Clase del vehículo
+          example: "AUTOMOVIL"
+        fechaActualiza:
+          type: string
+          description: Fecha de última actualización en REPUVE (formato YYYY-MM-DD)
+          example: "2022-09-30"
 
     RepuveDTO:
       type: object
@@ -293,6 +313,10 @@ components:
           format: int64
           description: Tiempo total de respuesta del servicio en milisegundos
           example: 1250
+        pdfUrl:
+          type: string
+          description: URL para descargar el PDF del reporte
+          example: "/api/reports/550e8400-e29b-41d4-a716-446655440000/pdf"
 
     ReportEventDTO:
       type: object
