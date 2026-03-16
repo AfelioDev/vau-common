@@ -97,6 +97,12 @@ components:
           $ref: '#/components/schemas/RapiDTO'
         carfax:
           $ref: '#/components/schemas/CarfaxDTO'
+        needsVin:
+          type: boolean
+          description: >
+            Indica que la placa fue encontrada en REPUVE pero no se obtuvo NIV.
+            El caller debe realizar un segundo paso enviando el NIV físico del vehículo.
+          example: false
 
     PgjDTO:
       type: object
