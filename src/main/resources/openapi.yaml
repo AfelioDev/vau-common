@@ -77,6 +77,41 @@ components:
           type: string
           description: Fecha de última actualización en REPUVE (formato YYYY-MM-DD)
           example: "2022-09-30"
+        nci:
+          type: string
+          description: Número de Constancia de Inscripción (NCI)
+          example: "30814I5D"
+        folioConstancia:
+          type: string
+          description: Folio de Constancia de Inscripción
+          example: "5954709"
+        numCilindros:
+          type: string
+          description: Número y configuración de cilindros (L4, L6, etc.)
+          example: "L4"
+        datosComplementarios:
+          type: string
+          description: Datos complementarios reportados por REPUVE (airbags, emisiones, etc.)
+        institucionInscripcion:
+          type: string
+          description: Institución que inscribió el vehículo en REPUVE
+          example: "VOLKSWAGEN DE MEXICO S.A. DE C.V."
+        fechaInscripcion:
+          type: string
+          description: Fecha de inscripción REPUVE (DD/MM/YY)
+          example: "13/03/19"
+        horaInscripcion:
+          type: string
+          description: Hora de inscripción REPUVE (HH:MM:SS)
+          example: "08:50:56"
+        fechaEmplacado:
+          type: string
+          description: Fecha de emplacado vigente (DD/MM/YY)
+          example: "22/08/24"
+        entidadEmplaco:
+          type: string
+          description: Entidad federativa que emplacó el vehículo
+          example: "CIUDAD DE MEXICO"
 
     RepuveDTO:
       type: object
