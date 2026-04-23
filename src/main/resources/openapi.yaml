@@ -152,12 +152,50 @@ components:
           $ref: '#/components/schemas/RapiDTO'
         carfax:
           $ref: '#/components/schemas/CarfaxDTO'
+        theftReports:
+          $ref: '#/components/schemas/TheftReportsDTO'
         needsVin:
           type: boolean
           description: >
             Indica que la placa fue encontrada en REPUVE pero no se obtuvo NIV.
             El caller debe realizar un segundo paso enviando el NIV físico del vehículo.
           example: false
+
+    TheftSourceDTO:
+      type: object
+      description: Resumen de una fuente individual de reporte de robo
+      properties:
+        reported:
+          type: boolean
+          description: True si la fuente indica reporte (robo, alerta, delito), false si limpia
+          example: false
+        summary:
+          type: string
+          description: Etiqueta corta del estatus, derivada del texto oficial
+          example: "SIN REPORTE DE ROBO"
+        detail:
+          type: string
+          description: Info estructurada adicional (entidad, fechas, marca, etc.)
+          example: "Entidad: Jalisco · Fecha: 17/06/2021"
+        text:
+          type: string
+          description: Texto completo de la pestaña tal cual REPUVE lo muestra
+
+    TheftReportsDTO:
+      type: object
+      description: Consolidado de las 4 pestañas de robo del REPUVE
+      properties:
+        anyReport:
+          type: boolean
+          description: True si cualquier fuente reporta algo (vigente o histórico)
+        fgj:
+          $ref: '#/components/schemas/TheftSourceDTO'
+        ocra:
+          $ref: '#/components/schemas/TheftSourceDTO'
+        usaCanada:
+          $ref: '#/components/schemas/TheftSourceDTO'
+        avisos:
+          $ref: '#/components/schemas/TheftSourceDTO'
 
     PgjDTO:
       type: object
